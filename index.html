@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Addition</title>
+  </head>
+  <body>
+    <div class="title">
+      <h1 class="title">Addition</h1>
+      <h2>of Large Numbers</h2>
+    </div>
+    <div class="line"></div>
+    <div class="large-adder">
+      <form class="add-container">
+        <div class="num-validate">
+          <label class="input-label">First Number</label>
+          <!-- <button class="btn enter-first-input">Enter</button>
+          <label class="validate">Format </label>
+          <label>by 3</label>
+          <input class="format-by3" type="checkbox" />
+          <label>by 5</label>
+          <input class="format-by5" type="checkbox" /> -->
+        </div>
+        <textarea
+          class="input1 input-value"
+          rows="3"
+          cols="50"
+          placeholder="enter first number..."
+        ></textarea>
+
+        <div class="num-validate">
+          <label class="input-label">Second Number</label>
+          <!-- <button>Enter</button> -->
+          <!-- <label class="validate">Format </label>
+          <label class="format-by3" for="">by 3</label>
+          <input type="checkbox" />
+          <label class="format-by5" for="">by 5</label>
+          <input type="checkbox" /> -->
+        </div>
+        <textarea
+          class="input2 input-value"
+          rows="4"
+          cols="50"
+          placeholder="enter second number..."
+        ></textarea>
+        <div class="num-validate">
+          <label class="answer-label">Answer</label>
+          <!-- <label class="validate">Format </label> -->
+          <!-- <select name="my-select" id="result">
+            <option class="format-by3" value="div-by3">By 3</option>
+            <option class="format-by5" value="div-by5">By 5</option>
+          </select> -->
+        </div>
+        <textarea class="answer" rows="5" cols="50"></textarea>
+      </form>
+      <!-- form of operation and option  Left -->
+      <form action="" class="operation-and-option">
+        <div class="operands">
+          <div class="box"><label class="validate">Reformat </label></div>
+          <div class="box">
+            <label>by 3<input class="format-by3" type="checkbox" /></label>
+          </div>
+          <div class="box">
+            <label>by 5<input class="format-by5" type="checkbox" /></label>
+          </div>
+          <div class="box"><label for="">Any P</label></div>
+          <div class="box">
+            <input class="format-by-any-value" type="number" />
+          </div>
+
+          <div><button class="btn enter-first-input">Enter</button></div>
+        </div>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
