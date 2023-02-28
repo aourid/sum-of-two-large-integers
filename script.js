@@ -1,67 +1,70 @@
-const firstInput = document.querySelector(".enter-first-input");
+const addOperationEle = document.querySelector(".add-operation");
+const deleteInputsEle = document.querySelector(".delete-inputs");
 const firstEle = document.querySelector(".input1");
 const secondEle = document.querySelector(".input2");
 const answerEle = document.querySelector(".answer");
 
-//format by 3 or by 5
+//format by 3, 5 or by any value P
+const reformatEle = document.querySelector(".reformat-inputs");
 const formatBy3Ele = document.querySelector(".format-by3");
 const formatBy5Ele = document.querySelector(".format-by5");
 const formatByAnyValueEle = document.querySelector(".format-by-any-value");
 
-//input values in text area
+deleteInputsEle.addEventListener("click", () => {
+  firstEle.value = 0;
+  secondEle.value = 0;
+  answerEle.value = 0;
+});
 
-firstInput.addEventListener("click", (event) => {
+// Reformat btn independent from add
+reformatEle.addEventListener("click", (event) => {
   let num1 = firstEle.value;
   let num2 = secondEle.value;
-  console.log("numbers before cleaning", num1, ".... ", num2);
-  console.log("hello");
+  let ans = answerEle.value;
+
   if (num1[0] === "0") num1 = cleanfirstNullDigits(num1);
   if (num2[0] === "0") num2 = cleanfirstNullDigits(num2);
 
-  console.log("numbers after cleaning", num1, ".... ", num2);
-
-  console.log("hello");
-
   if (formatBy3Ele.checked === true) {
     formatBy5Ele.checked = false;
-    console.log("# is checkd");
     firstEle.value = reformatTheNumber(num1, 3);
     secondEle.value = reformatTheNumber(num2, 3);
+    answerEle.value = reformatTheNumber(ans, 3);
   } else if (formatBy5Ele.checked === true) {
     formatBy3Ele.checked = false;
     firstEle.value = reformatTheNumber(num1, 5);
     secondEle.value = reformatTheNumber(num2, 5);
+    answerEle.value = reformatTheNumber(ans, 5);
   } else {
     const formatParameter = formatByAnyValueEle.value;
-    // formatByAnyValueEle
-    console.log("paramter P:", formatParameter);
     if (formatParameter > 1) {
       firstEle.value = reformatTheNumber(num1, formatParameter);
       secondEle.value = reformatTheNumber(num2, formatParameter);
+      answerEle.value = reformatTheNumber(ans, formatParameter);
     }
   }
-  console.log("**************************************");
-  console.log(num1, typeof num1);
+  event.preventDefault();
+});
+
+addOperationEle.addEventListener("click", (event) => {
+  let num1 = firstEle.value;
+  let num2 = secondEle.value;
+  if (num1[0] === "0") num1 = cleanfirstNullDigits(num1);
+  if (num2[0] === "0") num2 = cleanfirstNullDigits(num2);
+  // console.log(num1, typeof num1);
   const num1Array = stringNumberToArray(num1);
   const num2Array = stringNumberToArray(num2);
 
-  console.log(num1Array);
-  console.log(num2Array);
-
-  console.log("............P s e u d o  S u m.............................");
+  // console.log("..........P s e u d o  S u m............");
   const firstValue = fromStringArrayToNumberArray(num1Array);
   const secondValue = fromStringArrayToNumberArray(num2Array);
   const pseudoSumValue = pseudoSum(firstValue, secondValue);
-  console.log(".... Pseudo value: ", pseudoSumValue);
+  // console.log(".... Pseudo value: ", pseudoSumValue);
   const result = carryPropagation(pseudoSumValue);
-  console.log("...... so the sum is: ", result);
+  // console.log("...... so the sum is: ", result);
 
-  const additionResult = fromNumberArrayToString(result); //This is not necessary
-  console.log(
-    "............. Final Result ........ ",
-    additionResult,
-    typeof additionResult
-  );
+  const additionResult = fromNumberArrayToString(result);
+  // console.log("....... Final Result .... ", additionResult);
 
   if (formatBy3Ele.checked === true) {
     answerEle.value = reformatTheNumber(String(additionResult), 3);
@@ -77,14 +80,7 @@ firstInput.addEventListener("click", (event) => {
     answerEle.value = additionResult;
     firstEle.value = num1;
     secondEle.value = num2;
-    console.log(" -----> num1: ", num1, "num2", num2);
   }
-
-  // // const formatParameter = formatByAnyValueEle.value;
-  // answerEle.value = reformatTheNumber(
-  //   String(additionResult),
-  //   formatParameter
-
   event.preventDefault();
 });
 
@@ -160,15 +156,13 @@ function carryPropagation(a) {
     result[i] = ((a[i] % 10) + carry) % 10;
     carry = ~~((a[i] + carry) / 10);
   }
-  console.log(" >>>>>>>>> inside carry Propagation before unshift", result);
   if (carry !== 0) result.unshift(carry);
-  console.log(" >>>>>>>>> inside carry Propagation after unshift", result);
   return result;
 }
 
-"00 0 11 0 2"
-  .split("")
-  .filter((x) => typeof Number(x) === "number" && x !== " ");
+// "00 0 11 0 2"
+//   .split("")
+//   .filter((x) => typeof Number(x) === "number" && x !== " ");
 // ['0', '0', '0', '1', '1', '0', '2']
 
 function cleanInputNumber(n) {

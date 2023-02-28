@@ -130,22 +130,25 @@ form {
 
 .btn {
   cursor: pointer;
-  background-color: #ab79d6;
+  /* background-color: #ab79d6; */
+  background: #47364bf7;
   font-family: "Roboto", sans-serif;
 
-  color: #cdcdcd;
+  /* color: #cdcdcd; */
+  color: #e5ff00be;
   border: 2px solid transparent;
   border-radius: 1.5rem;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   padding: 0.5rem 1rem;
   font-weight: bold;
   letter-spacing: 2.5px;
   box-shadow: 0 2px 10px rgba(250, 78, 250, 0.986);
 }
 .btn:hover {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   background: #47364bf7;
   border: solid 0.2px rgba(89, 49, 107, 0.979);
+  color: #e5ff00;
   /* font-weight: bold; */
 }
 
@@ -153,4 +156,7 @@ small {
   color: #e5ff00;
   margin-top: 1.5rem;
   text-align: center;
+}
+.delete-inputs {
+  background: #47364bf7;
 }
